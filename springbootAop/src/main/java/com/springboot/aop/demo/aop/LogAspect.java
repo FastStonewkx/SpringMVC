@@ -36,6 +36,11 @@ public class LogAspect {
         System.out.println("方法的返回值："+ret);
 
     }
+    @AfterThrowing(throwing = "ex" ,pointcut = "webLog()")
+    public void throwed(JoinPoint jp,Exception ex){
+        System.out.println("throwed方法添加参数，依旧执行");
+    }
+
     @AfterThrowing("webLog()")
     public void throwing(JoinPoint jp){
         System.out.println("方法异常时执行......");
